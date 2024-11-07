@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Moments Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/about.html">About</a> |
+            <a href="/contact.html">Contact</a>
+        </nav>
+        <h1>Welcome to Mindful Moments Tracker</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Your journey begins here</h2>
+            <p>Track your mindfulness and reflections.</p>
+        </section>
+        
+        <section class="thought-form">
+            <h2>Share Your Mindful Thoughts</h2>
+            <form id="thoughtForm" action="/submit-thought" method="post">
+                <label for="thought">Your Thought:</label>
+                <textarea id="thought" name="thought" rows="4" placeholder="Write your thoughts here..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="thankYouMessage" style="display:none; color: green; margin-top: 10px;">Thank you for sharing your thoughts!</p>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("thoughtForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents form submission to server
+            document.getElementById("thankYouMessage").style.display = "block"; // Shows thank-you message
+            document.getElementById("thoughtForm").reset(); // Clears the form
+        });
+    </script>
+</body>
+</html>
